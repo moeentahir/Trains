@@ -41,22 +41,5 @@ namespace Trains.Common
         /// <returns>True if object is null or empty</returns>
         public static bool IsEmpty(this string @this) => string.IsNullOrEmpty(@this);
 
-        /// <summary>
-        /// Rounds the decimal value using 'Round half away from zero' technique.
-        /// For example, 23.5 gets rounded to 24, and −23.5 gets rounded to −24.
-        /// </summary>
-        public static decimal RoundTo(this decimal value, int digits)
-        {
-            return decimal.Round(value, digits, MidpointRounding.AwayFromZero);
-        }
-
-        /// <summary>
-        /// Will multiply the amount by 100 and them append percentage sign (%) at the end.
-        /// Example: If .075 is passed, it will return 7.5%
-        /// </summary>
-        public static string DisplayPercentage(this decimal @this)
-        {
-            return $"{(@this * 100).RoundTo(1)} %";
-        }
     }
 }

@@ -48,5 +48,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Trains.Common\Trains.Common.csproj">
+      <Project>{bed8c0cf-9fe8-48e9-9e7f-97fb9659404a}</Project>
+      <Name>Trains.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trains.Framework\Trains.Framework.csproj">
+      <Project>{68befb2d-9af5-4645-b57d-fa66729562ff}</Project>
+      <Name>Trains.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trains.Resources\Trains.Resources.csproj">
+      <Project>{e335c5df-7cad-4147-b166-4113fd0f20c2}</Project>
+      <Name>Trains.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,12 +9,12 @@ namespace Trains.Framework
 {
     public class DistanceCalculator
     {
-        public DistanceCalculator(Graph graph)
+        public DistanceCalculator(Map map)
         {
-            Graph = graph;
+            Map = map;
         }
 
-        public Graph Graph { get; }
+        public Map Map { get; }
 
         public int Calculate(string path)
         {
@@ -24,16 +24,16 @@ namespace Trains.Framework
             var distance = 0;
             for (int i = 0; i < path.Length - 1; i++)
             {
-                var fromNodeName = path[i].ToString();
-                var toNodeName = path[i + 1].ToString();
+                var fromTownName = path[i].ToString();
+                var toTownName = path[i + 1].ToString();
 
-                var fromNode = Graph.GetNode(fromNodeName);
-                var edge = fromNode.GetEdgeTo(toNodeName);
+                var fromTown = Map.GetTown(fromTownName);
+                var route = fromTown.GetRouteTo(toTownName);
 
-                if (edge == null)
+                if (route == null)
                     throw new ValidationException("No such route exists");
 
-                distance += edge.Weight;
+                distance += route.Distance;
             }
 
             return distance;

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
-    public class GreaterThanThreeStopsRule : ITravelRule
+    public interface ITravelRule
     {
-        public bool IsMatch(TravelLog ticket) => ticket.StopsTravelled > 3;
+        bool IsMatch(TravelLog ticket);
     }
 }

@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DistanceCalculatorTests.cs" />
-    <Compile Include="GraphBuilderTests.cs" />
+    <Compile Include="MapBuilderTests.cs" />
     <Compile Include="PathFinderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

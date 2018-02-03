@@ -18,7 +18,7 @@ namespace Trains.UnitTests
         [DataRow("ADCDE", 27)]
         public void Valid_Distance_For_A_Path(string path, int expected)
         {
-            var distanceCalculator = new DistanceCalculator(Graph);
+            var distanceCalculator = new DistanceCalculator(Map);
 
             var actual = distanceCalculator.Calculate(path);
 
@@ -30,19 +30,19 @@ namespace Trains.UnitTests
         [ExpectExceptionWithMessage(typeof(ValidationException), "No such route exists")]
         public void Invalid_Distance_Should_Thorw_exception(string path)
         {
-            var distanceCalculator = new DistanceCalculator(Graph);
+            var distanceCalculator = new DistanceCalculator(Map);
 
             var actual = distanceCalculator.Calculate(path);
 
         }
 
-        public static Graph Graph { get; set; }
+        public static Map Map { get; set; }
 
         [ClassInitialize()]
         public static void ClassInit(TestContext context)
         {
-            var graphInput = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
-            Graph = new GraphBuilder().Build(graphInput);
+            var mapInput = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
+            Map = new MapBuilder().Build(mapInput);
         }
     }
 }

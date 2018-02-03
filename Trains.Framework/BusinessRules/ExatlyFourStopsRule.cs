@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
-    public class ExatlyFourStopsRule : IPathFinderRule
+    public class ExatlyFourStopsRule : ITravelRule
     {
-        public bool IsMatch(int stops) => stops == 4;
+        public bool IsMatch(TravelLog ticket) => ticket.StopsTravelled == 4;
     }
 }

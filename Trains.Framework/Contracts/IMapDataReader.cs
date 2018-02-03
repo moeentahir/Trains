@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
-    public interface IPathFinderRule
+    public interface IMapDataReader
     {
-        bool IsMatch(int stops);
+        Task<string> Read();
     }
 }

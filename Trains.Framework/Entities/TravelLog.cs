@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
-    public class TravelLog
+    public struct TravelLog
     {
-        public string PathSoFar { get; set; }
+        public string RouteCovered { get; set; }
 
-        public int NumberOfStops { get; set; }
+        public int StopsTravelled { get; set; }
 
         public int DistanceTravelled { get; set; }
 
-        public override string ToString() => $"Path: {PathSoFar} | Distance: {DistanceTravelled} | Stops: {NumberOfStops}";
+        public Map Map { get; set; }
+
+        public override string ToString() => $"Path: {RouteCovered} | Distance: {DistanceTravelled} | Stops: {StopsTravelled}";
 
     }
 }

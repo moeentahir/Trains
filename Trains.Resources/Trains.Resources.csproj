@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{68BEFB2D-9AF5-4645-B57D-FA66729562FF}</ProjectGuid>
+    <ProjectGuid>{E335C5DF-7CAD-4147-B166-4113FD0F20C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Trains.Framework</RootNamespace>
-    <AssemblyName>Trains.Framework</AssemblyName>
+    <RootNamespace>Trains.Resources</RootNamespace>
+    <AssemblyName>Trains.Resources</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,29 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessRules\ExatlyFourStopsRule.cs" />
-    <Compile Include="BusinessRules\MaximumThreeStopsRule.cs" />
-    <Compile Include="BusinessRules\MoreThanTwiceRoutesCoveredRule.cs" />
-    <Compile Include="BusinessRules\TravelDistanceGreaterThanOrEqualTo30Rule.cs" />
-    <Compile Include="Contracts\IMapDataReader.cs" />
-    <Compile Include="Contracts\ITravelRule.cs" />
-    <Compile Include="Entities\Map.cs" />
-    <Compile Include="Entities\Route.cs" />
-    <Compile Include="Entities\Town.cs" />
-    <Compile Include="Entities\TravelLog.cs" />
-    <Compile Include="Services\DistanceCalculator.cs" />
-    <Compile Include="Services\MapBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\MapDataReaderFromFile.cs" />
-    <Compile Include="Services\MapInputBuilder.cs" />
-    <Compile Include="Services\RouteFinder.cs" />
-    <Compile Include="Services\TrainJourneyPlanner.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Trains.Common\Trains.Common.csproj">
-      <Project>{bed8c0cf-9fe8-48e9-9e7f-97fb9659404a}</Project>
-      <Name>Trains.Common</Name>
-    </ProjectReference>
+    <Content Include="EmptyMap.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OfficialMap.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
