@@ -10,13 +10,13 @@ namespace Trains.Framework
     {
         public string Name { get; set; }
 
-        List<Edge> Edges;
+        public List<Edge> Edges;
         public Node()
         {
             Edges = new List<Edge>();
         }
 
-        void AddEdge(int weight, Node node)
+        public void AddEdge(int weight, Node node)
         {
             this.Edges.Add(new Edge
             {
@@ -24,5 +24,9 @@ namespace Trains.Framework
                 Node = node
             });
         }
+
+        public override string ToString() => $"{Name} {Edges.Count()}";
+
+        public Edge GetEdgeTo(string nodeName) => Edges.FirstOrDefault(e => e.Node.Name == nodeName);
     }
 }

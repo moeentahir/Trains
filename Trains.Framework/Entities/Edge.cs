@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
-    class Edge
+    public class Edge
     {
         public int Weight { get; set; }
 
         public Node Node { get; set; }
+
+        public override string ToString() => $"{Node} {Weight}";
     }
 }

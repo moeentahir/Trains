@@ -48,13 +48,23 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DistanceCalculatorTests.cs" />
     <Compile Include="GraphBuilderTests.cs" />
+    <Compile Include="PathFinderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tests.Common\Tests.Common.csproj">
+      <Project>{d5083ab7-e07b-4c8d-b595-2811e319f34c}</Project>
+      <Name>Tests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trains.Common\Trains.Common.csproj">
+      <Project>{bed8c0cf-9fe8-48e9-9e7f-97fb9659404a}</Project>
+      <Name>Trains.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Trains.Framework\Trains.Framework.csproj">
       <Project>{68befb2d-9af5-4645-b57d-fa66729562ff}</Project>
       <Name>Trains.Framework</Name>

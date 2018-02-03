@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
-    public class Graph
+    public class MaximumThreeStopsRule : IPathFinderRule
     {
-        List<Node> Nodes;
-        public Graph()
-        {
-            Nodes = new List<Node>();
-        }
+        public bool IsMatch(int stops) => stops <= 3;
     }
 }

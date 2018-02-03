@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trains.Common
+namespace Trains.Framework
 {
-    public class Class1
+    public class ExatlyFourStopsRule : IPathFinderRule
     {
+        public bool IsMatch(int stops) => stops == 4;
     }
 }
