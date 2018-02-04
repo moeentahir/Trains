@@ -7,6 +7,9 @@ using Trains.Common;
 
 namespace Trains.Framework
 {
+    /// <summary>
+    /// Calculates the disctance along a specific path
+    /// </summary>
     public class DistanceCalculator : IDistanceCalculator
     {
         readonly Map Map;
@@ -16,6 +19,10 @@ namespace Trains.Framework
             Map = map;
         }
 
+        /// <summary>
+        /// Goes through the speciefied path, if no route exists between two towns, it will throw exception 
+        /// </summary>
+        /// <returns></returns>
         public int Calculate(string path)
         {
             if (path.Length < 2)

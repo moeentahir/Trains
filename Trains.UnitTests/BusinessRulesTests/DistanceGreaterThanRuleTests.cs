@@ -5,7 +5,7 @@ using Trains.Framework;
 namespace Trains.UnitTests.BusinessRulesTests
 {
     [TestClass]
-    public class TravelDistanceGreaterThanOrEqualTo30RuleTests
+    public class DistanceGreaterThanRuleTests
     {
         [TestMethod]
         [DataRow(1, false)]

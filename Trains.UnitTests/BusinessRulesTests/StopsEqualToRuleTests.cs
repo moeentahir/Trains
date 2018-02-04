@@ -5,7 +5,7 @@ using Trains.Framework;
 namespace Trains.UnitTests.BusinessRulesTests
 {
     [TestClass]
-    public class GreaterThanFourStopsRuleTests
+    public class StopsEqualToRuleTests
     {
         [TestMethod]
         [DataRow(1, false)]

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
+    /// <summary>
+    /// Represents one diretional link between two towns
+    /// </summary>
     public class Route
     {
         /// <summary>

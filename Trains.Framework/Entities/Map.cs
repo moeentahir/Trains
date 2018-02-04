@@ -4,6 +4,9 @@ using Trains.Common;
 
 namespace Trains.Framework
 {
+    /// <summary>
+    /// Contains list of all towns in the map and those towns then contain link between them
+    /// </summary>
     public class Map
     {
         /// <summary>

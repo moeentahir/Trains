@@ -40,10 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessRules\MoreThanTwiceRoutesCoveredRule.cs" />
+    <Compile Include="BusinessRules\DistanceGreaterThanRule.cs" />
     <Compile Include="BusinessRules\StopsEqualToRule.cs" />
     <Compile Include="BusinessRules\StopsGreaterThanRule.cs" />
-    <Compile Include="BusinessRules\TravelDistanceGreaterThanOrEqualTo30Rule.cs" />
     <Compile Include="Contracts\IMapRawDataReader.cs" />
     <Compile Include="Contracts\ITravelRule.cs" />
     <Compile Include="Entities\Map.cs" />

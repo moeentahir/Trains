@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Trains.Common
 {
@@ -16,12 +12,6 @@ namespace Trains.Common
         {
             if (@this.IsEmpty()) return default(T?);
 
-            if (typeof(T) == typeof(decimal))
-            {
-                if (decimal.TryParse(@this, out decimal result))
-                    return (T)(object)result;
-                else return null;
-            }
 
             if (typeof(T) == typeof(int))
             {

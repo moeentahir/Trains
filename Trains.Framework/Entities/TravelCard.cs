@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Trains.Framework
+﻿namespace Trains.Framework
 {
     /// <summary>
     /// Represents all the travle information from soure till destination

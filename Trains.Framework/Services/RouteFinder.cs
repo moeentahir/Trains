@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
+    /// <summary>
+    /// This class finds all the routes in the map using depth first approach
+    /// </summary>
     public class RouteFinder : IRouteFinder
     {
         readonly Map Map;
@@ -14,12 +17,6 @@ namespace Trains.Framework
         ITravelRule StopTravelingRule;
         public int RecursionCount { get; set; }
 
-        /// <summary>
-        /// This class finds all the routes in the map using depth first approach
-        /// </summary>
-        /// <param name="map">An initialized map object with Towns and Routes configured</param>
-        /// <param name="stopTravelingRule">Specify a rule here when to stop searching for the path. If there are loops in the Map then this makes sure you don't travel in cycles</param>
-        /// <param name="destinationFoundRule">If you want to add some extra condition in finding the destination specify them here. Passing null will ignore this.</param>
         public RouteFinder(Map map)
         {
             Map = map;

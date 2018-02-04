@@ -61,18 +61,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessRulesTests\ExatlyFourStopsRuleTests.cs" />
-    <Compile Include="BusinessRulesTests\GreaterThanFourStopsRuleTests.cs" />
-    <Compile Include="BusinessRulesTests\GreaterThanThreeStopsRuleTests.cs" />
-    <Compile Include="BusinessRulesTests\MoreThanTwiceRoutesCoveredRuleTests.cs" />
-    <Compile Include="BusinessRulesTests\TravelDistanceGreaterThanOrEqualTo30RuleTests.cs" />
+    <Compile Include="BusinessRulesTests\DistanceGreaterThanRuleTests.cs" />
+    <Compile Include="BusinessRulesTests\StopsEqualToRuleTests.cs" />
+    <Compile Include="BusinessRulesTests\StopsGreaterThanRuleTests.cs" />
     <Compile Include="EntitiesTests\MapTests.cs" />
     <Compile Include="EntitiesTests\RouteTests.cs" />
     <Compile Include="EntitiesTests\TownTests.cs" />
     <Compile Include="EntitiesTests\TravelCardTests.cs" />
     <Compile Include="ServicesTests\DistanceCalculatorTests.cs" />
     <Compile Include="ServicesTests\InputValidatorTests.cs" />
-    <Compile Include="ServicesTests\JourneyPlannerTests\JourneyPlannerTests.cs" />
+    <Compile Include="ServicesTests\JourneyPlannerTests.cs" />
     <Compile Include="ServicesTests\MapBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesTests\MapRawDataReaderFromFileTests.cs" />

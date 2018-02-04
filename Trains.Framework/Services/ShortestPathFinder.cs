@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
+    /// <summary>
+    /// Calculates the shortest path between two town using depth first approach
+    /// </summary>
     public class ShortestPathFinder : IShortestPathFinder
     {
         readonly Map Map;
