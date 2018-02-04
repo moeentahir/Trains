@@ -31,7 +31,7 @@ namespace Trains.Framework
                 var route = fromTown.GetRouteTo(toTownName);
 
                 if (route == null)
-                    throw new ValidationException("No such route exists");
+                    throw new ValidationException("No such route");
 
                 distance += route.Distance;
             }

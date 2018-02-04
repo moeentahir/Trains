@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessRules\ExatlyFourStopsRule.cs" />
-    <Compile Include="BusinessRules\MaximumThreeStopsRule.cs" />
+    <Compile Include="BusinessRules\GreaterThanThreeStopsRule.cs" />
     <Compile Include="BusinessRules\MoreThanTwiceRoutesCoveredRule.cs" />
     <Compile Include="BusinessRules\TravelDistanceGreaterThanOrEqualTo30Rule.cs" />
     <Compile Include="Contracts\IMapDataReader.cs" />
@@ -51,12 +51,13 @@
     <Compile Include="Entities\Town.cs" />
     <Compile Include="Entities\TravelLog.cs" />
     <Compile Include="Services\DistanceCalculator.cs" />
+    <Compile Include="Services\JourneyPlanner.cs" />
     <Compile Include="Services\MapBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MapDataReaderFromFile.cs" />
     <Compile Include="Services\MapInputBuilder.cs" />
     <Compile Include="Services\RouteFinder.cs" />
-    <Compile Include="Services\TrainJourneyPlanner.cs" />
+    <Compile Include="Services\ShortestPathFinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Trains.Common\Trains.Common.csproj">

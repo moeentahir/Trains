@@ -7,11 +7,11 @@ using Trains.Common;
 
 namespace Trains.Framework
 {
-    public class TrainJourneyPlanner
+    public class JourneyPlanner
     {
         private Map Map;
 
-        public TrainJourneyPlanner(IMapDataReader mapDataReader)
+        public JourneyPlanner(IMapDataReader mapDataReader)
         {
             MapDataReader = mapDataReader;
         }
@@ -22,8 +22,9 @@ namespace Trains.Framework
         {
             await CreateMap();
 
-            var townC = Map.GetTown("C");
             var townA = Map.GetTown("A");
+            var townB = Map.GetTown("B");
+            var townC = Map.GetTown("C");
 
 
             var result = new List<string>
@@ -35,7 +36,8 @@ namespace Trains.Framework
                 CalculationDistanceInPath("AED"),
                 new RouteFinder(Map, new GreaterThanThreeStopsRule()).FindAllRoutesBetween(townC, townC).Count().ToString(),
                 new RouteFinder(Map, new MoreThanTwiceRoutesCoveredRule(), new ExatlyFourStopsRule()).FindAllRoutesBetween(townA, townC).Count().ToString(),
-
+                new ShortestPathFinder(Map).FindShortestPathBetween(townA, townC).ToString(),
+                new ShortestPathFinder(Map).FindShortestPathBetween(townB, townB).ToString(),
                 new RouteFinder(Map, new TravelDistanceGreaterThanOrEqualTo30Rule()).FindAllRoutesBetween(townC, townC).Count().ToString()
             };
 

@@ -11,15 +11,19 @@ namespace Trains.Framework
     {
         public Map Build(string data)
         {
+            data = data.ToUpper();
             var routes = data.Split(',').ToList();
-            var map = new Map { TotalRoutes = routes.Count() };
+            var map = new Map();
+            var routesCount = 0;
 
             foreach (var route in routes)
             {
                 var trimmedRoute = route.Trim();
+                if (trimmedRoute.IsEmpty())
+                    continue;
 
                 if (trimmedRoute.Length != 3)
-                    throw new ValidationException($"Incorrect input for the map. Route {trimmedRoute} is not is correct format. Should be two letters and digit.");
+                    throw new ValidationException($"Incorrect input for the map. Route '{trimmedRoute}' is not is correct format. Should be two letters and digit.");
 
                 var firstTownName = trimmedRoute[0].ToString();
                 var secondTownName = trimmedRoute[1].ToString();
@@ -31,7 +35,9 @@ namespace Trains.Framework
                 var firstTown = map.GetTown(firstTownName, createIfNotFound: true);
                 var secondTown = map.GetTown(secondTownName, createIfNotFound: true);
                 firstTown.AddRoute(weight.Value, secondTown);
+                routesCount++;
             }
+            map.TotalRoutes = routesCount;
             return map;
         }
     }

@@ -23,7 +23,7 @@ namespace Trains
                 var filePath = new MapInputBuilder(args).Build();
 
                 // Step 2: Plan different routs
-                var planningResult = await new TrainJourneyPlanner(new MapDataReaderFromFile(filePath)).Plan();
+                var planningResult = await new JourneyPlanner(new MapDataReaderFromFile(filePath)).Plan();
 
                 // Step 3: Display results
                 DisplayResult(planningResult);

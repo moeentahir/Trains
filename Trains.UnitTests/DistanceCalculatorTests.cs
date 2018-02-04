@@ -27,7 +27,7 @@ namespace Trains.UnitTests
 
         [TestMethod]
         [DataRow("AED")]
-        [ExpectExceptionWithMessage(typeof(ValidationException), "No such route exists")]
+        [ExpectExceptionWithMessage(typeof(ValidationException), "No such route")]
         public void Invalid_Distance_Should_Thorw_exception(string path)
         {
             var distanceCalculator = new DistanceCalculator(Map);
