@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Trains.Common;
 
 namespace Trains.Framework
 {
-    public class MapBuilder
+    public class MapBuilder : IMapBuilder
     {
-        public Map Build(string data)
+        public MapBuilder(IMapRawDataReader reader)
         {
+            Reader = reader;
+        }
+
+        public IMapRawDataReader Reader { get; }
+
+        public async Task<Map> Build()
+        {
+            var data = await Reader.Read();
             data = data.ToUpper();
             var routes = data.Split(',').ToList();
             var map = new Map();
@@ -27,14 +32,14 @@ namespace Trains.Framework
 
                 var firstTownName = trimmedRoute[0].ToString();
                 var secondTownName = trimmedRoute[1].ToString();
-                var weight = trimmedRoute[2].ToString().TryParseAs<int>();
+                var distance = trimmedRoute[2].ToString().TryParseAs<int>();
 
-                if (weight == null)
+                if (distance == null)
                     throw new ValidationException($"Distance for the route {trimmedRoute} should be an integer.");
 
                 var firstTown = map.GetTown(firstTownName, createIfNotFound: true);
                 var secondTown = map.GetTown(secondTownName, createIfNotFound: true);
-                firstTown.AddRoute(weight.Value, secondTown);
+                firstTown.AddRoute(secondTown, distance.Value);
                 routesCount++;
             }
             map.TotalRoutes = routesCount;

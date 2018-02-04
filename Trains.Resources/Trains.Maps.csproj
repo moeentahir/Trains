@@ -46,6 +46,9 @@
     <Content Include="LongerPathWithLessCost.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="CompleteMap.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="OfficialMap.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Trains.Framework
+﻿namespace Trains.Framework
 {
     public interface ITravelRule
     {
-        bool IsMatch(TravelLog ticket);
+        bool IsMatch(TravelCard ticket);
     }
 }

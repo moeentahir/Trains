@@ -57,9 +57,9 @@
       <Project>{68befb2d-9af5-4645-b57d-fa66729562ff}</Project>
       <Name>Trains.Framework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Trains.Resources\Trains.Resources.csproj">
+    <ProjectReference Include="..\Trains.Resources\Trains.Maps.csproj">
       <Project>{e335c5df-7cad-4147-b166-4113fd0f20c2}</Project>
-      <Name>Trains.Resources</Name>
+      <Name>Trains.Maps</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

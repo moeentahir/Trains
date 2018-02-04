@@ -7,14 +7,14 @@ using Trains.Common;
 
 namespace Trains.Framework
 {
-    public class DistanceCalculator
+    public class DistanceCalculator : IDistanceCalculator
     {
+        readonly Map Map;
+
         public DistanceCalculator(Map map)
         {
             Map = map;
         }
-
-        public Map Map { get; }
 
         public int Calculate(string path)
         {

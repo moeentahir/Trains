@@ -7,13 +7,13 @@ using Trains.Common;
 
 namespace Trains.Framework
 {
-    public class MapInputBuilder
+    public class InputValidator
     {
         const int FileArgumentIndex = 0;
 
         private string[] Args;
 
-        public MapInputBuilder(string[] args) => Args = args;
+        public InputValidator(string[] args) => Args = args;
 
         public string Build()
         {
@@ -26,6 +26,10 @@ namespace Trains.Framework
         {
             if (Args == null || Args.Length != 1)
                 throw new ValidationException("Please pass in file name that contains map information.");
+
+            var filePath = Args[0];
+            if (!filePath.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+                throw new ValidationException("Please only provide path for text files (*.txt).");
         }
     }
 }

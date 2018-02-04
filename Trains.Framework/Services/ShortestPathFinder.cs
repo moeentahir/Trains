@@ -6,24 +6,23 @@ using System.Threading.Tasks;
 
 namespace Trains.Framework
 {
-    public class ShortestPathFinder
+    public class ShortestPathFinder : IShortestPathFinder
     {
-        Map Map { get; }
-        Dictionary<Town, int> DistanceFromSource { get; }
+        readonly Map Map;
+        Dictionary<Town, int> DistanceFromSource;
 
-        public TravelLog ShortestPathDetails { get; set; }
+        public TravelCard ShortestPathDetails { get; set; }
 
         public ShortestPathFinder(Map map)
         {
             Map = map;
-            DistanceFromSource = new Dictionary<Town, int>();
         }
 
         public int FindShortestPathBetween(Town origin, Town destination)
         {
             InitializeDistanceFromSourceList();
 
-            var ticket = new TravelLog
+            var ticket = new TravelCard
             {
                 RouteCovered = origin.Name,
                 Map = Map
@@ -36,6 +35,7 @@ namespace Trains.Framework
 
         private void InitializeDistanceFromSourceList()
         {
+            DistanceFromSource = new Dictionary<Town, int>();
             foreach (var town in Map.Towns)
             {
                 DistanceFromSource.Add(town, int.MaxValue);
@@ -46,7 +46,7 @@ namespace Trains.Framework
         /// <summary>
         /// Recursively goes throuhg all the paths untill it meets the StopTravellingRule passed to this class
         /// </summary>
-        private void FindRecursive(Town current, Town destination, TravelLog ticket)
+        private void FindRecursive(Town current, Town destination, TravelCard ticket)
         {
             //Update distance from source if it is less than last distance calculated
             if (ticket.StopsTravelled != 0)
@@ -64,7 +64,7 @@ namespace Trains.Framework
             // Now visit all the routes going out from this town
             foreach (var route in current.Routes)
             {
-                FindRecursive(route.Destination, destination, new TravelLog
+                FindRecursive(route.Destination, destination, new TravelCard
                 {
                     RouteCovered = $"{ticket.RouteCovered}{route.Destination.Name}",
                     StopsTravelled = ticket.StopsTravelled + 1,

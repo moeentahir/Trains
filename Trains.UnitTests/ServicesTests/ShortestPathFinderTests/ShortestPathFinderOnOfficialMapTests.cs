@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using Tests.Common;
 using Trains.Framework;
 
 namespace Trains.UnitTests
@@ -10,9 +13,9 @@ namespace Trains.UnitTests
         [TestMethod]
         public void Shortest_Route_From_A_To_C()
         {
-            var pathFinder = new ShortestPathFinder(OfficialMap);
-            var from = OfficialMap.GetTown("A");
-            var to = OfficialMap.GetTown("C");
+            var pathFinder = new ShortestPathFinder(Map);
+            var from = Map.GetTown("A");
+            var to = Map.GetTown("C");
 
             var actual = pathFinder.FindShortestPathBetween(from, to);
 
@@ -25,9 +28,9 @@ namespace Trains.UnitTests
         [TestMethod]
         public void Shortest_Route_From_B_To_B()
         {
-            var pathFinder = new ShortestPathFinder(OfficialMap);
-            var from = OfficialMap.GetTown("B");
-            var to = OfficialMap.GetTown("B");
+            var pathFinder = new ShortestPathFinder(Map);
+            var from = Map.GetTown("B");
+            var to = Map.GetTown("B");
 
             var actual = pathFinder.FindShortestPathBetween(from, to);
 
@@ -40,9 +43,9 @@ namespace Trains.UnitTests
         [TestMethod]
         public void Shortest_Route_From_A_To_E()
         {
-            var pathFinder = new ShortestPathFinder(OfficialMap);
-            var from = OfficialMap.GetTown("A");
-            var to = OfficialMap.GetTown("E");
+            var pathFinder = new ShortestPathFinder(Map);
+            var from = Map.GetTown("A");
+            var to = Map.GetTown("E");
 
             var actual = pathFinder.FindShortestPathBetween(from, to);
 
@@ -52,13 +55,12 @@ namespace Trains.UnitTests
             Assert.AreEqual(1, pathFinder.ShortestPathDetails.StopsTravelled);
         }
 
-        public static Map OfficialMap { get; set; }
+        public static Map Map { get; set; }
 
         [ClassInitialize()]
-        public static void ClassInit(TestContext context)
+        public async static Task ClassInit(TestContext context)
         {
-            var mapInput = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
-            OfficialMap = new MapBuilder().Build(mapInput);
+            Map = await new World().CreateMap(MapType.Official);
         }
     }
 }

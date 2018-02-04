@@ -40,22 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessRules\ExatlyFourStopsRule.cs" />
-    <Compile Include="BusinessRules\GreaterThanThreeStopsRule.cs" />
     <Compile Include="BusinessRules\MoreThanTwiceRoutesCoveredRule.cs" />
+    <Compile Include="BusinessRules\StopsEqualToRule.cs" />
+    <Compile Include="BusinessRules\StopsGreaterThanRule.cs" />
     <Compile Include="BusinessRules\TravelDistanceGreaterThanOrEqualTo30Rule.cs" />
-    <Compile Include="Contracts\IMapDataReader.cs" />
+    <Compile Include="Contracts\IMapRawDataReader.cs" />
     <Compile Include="Contracts\ITravelRule.cs" />
     <Compile Include="Entities\Map.cs" />
     <Compile Include="Entities\Route.cs" />
     <Compile Include="Entities\Town.cs" />
-    <Compile Include="Entities\TravelLog.cs" />
+    <Compile Include="Entities\TravelCard.cs" />
     <Compile Include="Services\DistanceCalculator.cs" />
+    <Compile Include="Contracts\IDistanceCalculator.cs" />
+    <Compile Include="Contracts\IMapBuilder.cs" />
+    <Compile Include="Contracts\IRouteFinder.cs" />
+    <Compile Include="Contracts\IShortestPathFinder.cs" />
+    <Compile Include="Services\InputValidator.cs" />
     <Compile Include="Services\JourneyPlanner.cs" />
     <Compile Include="Services\MapBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\MapDataReaderFromFile.cs" />
-    <Compile Include="Services\MapInputBuilder.cs" />
+    <Compile Include="Services\MapRawDataReaderFromFile.cs" />
     <Compile Include="Services\RouteFinder.cs" />
     <Compile Include="Services\ShortestPathFinder.cs" />
   </ItemGroup>

@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Trains.Common;
 
 namespace Trains.Framework
 {
-    public class MapDataReaderFromFile: IMapDataReader
+    public class MapRawDataReaderFromFile: IMapRawDataReader
     {
-        public MapDataReaderFromFile(string filePath)
+        public MapRawDataReaderFromFile(string filePath)
         {
             FilePath = filePath;
         }
 
         public string FilePath { get; }
 
+        /// <summary>
+        /// Reads all contects of the file as text
+        /// </summary>
         public async Task<string> Read()
         {
             var result = string.Empty;

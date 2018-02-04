@@ -19,11 +19,20 @@ namespace Trains
         {
             try
             {
-                // Step 1: Validate and build command line arguments
-                var filePath = new MapInputBuilder(args).Build();
+                // Step 1: Validate command line arguments and build Path
+                var filePath = new InputValidator(args).Build();
+
+                // Step 2: Build map
+                var mapDataReader = new MapRawDataReaderFromFile(filePath);
+                var map = await new MapBuilder(mapDataReader).Build();
 
                 // Step 2: Plan different routs
-                var planningResult = await new JourneyPlanner(new MapDataReaderFromFile(filePath)).Plan();
+                var planningResult = await new JourneyPlanner(
+                    map,
+                    new DistanceCalculator(map),
+                    new ShortestPathFinder(map),
+                    new RouteFinder(map)
+                    ).Plan();
 
                 // Step 3: Display results
                 DisplayResult(planningResult);
@@ -38,12 +47,11 @@ namespace Trains
             }
         }
 
-        private static void DisplayResult(IEnumerable<string> results)
+        private static void DisplayResult(Dictionary<int, string> results)
         {
-            var resultNumber = 1;
             foreach (var result in results)
             {
-                Console.WriteLine($"Output #{resultNumber++}: {result}");
+                Console.WriteLine($"Output #{result.Key}: {result.Value}");
             }
         }
     }

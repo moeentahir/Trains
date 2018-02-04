@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Tests.Common;
 using Trains.Common;
 using Trains.Framework;
@@ -39,10 +41,9 @@ namespace Trains.UnitTests
         public static Map Map { get; set; }
 
         [ClassInitialize()]
-        public static void ClassInit(TestContext context)
+        public async static Task ClassInit(TestContext context)
         {
-            var mapInput = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
-            Map = new MapBuilder().Build(mapInput);
+            Map = await new World().CreateMap(MapType.Official);
         }
     }
 }

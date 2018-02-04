@@ -9,53 +9,54 @@ namespace Trains.Framework
 {
     public class JourneyPlanner
     {
-        private Map Map;
+        private readonly Map Map;
+        private readonly IDistanceCalculator DistanceCalculationService;
+        private readonly IShortestPathFinder ShortestPathFinder;
+        private readonly IRouteFinder RouteFinder;
 
-        public JourneyPlanner(IMapDataReader mapDataReader)
+        public JourneyPlanner(Map map, IDistanceCalculator distanceCalculationService, IShortestPathFinder shortestPathFinder, IRouteFinder routeFinder)
         {
-            MapDataReader = mapDataReader;
+            Map = map;
+            DistanceCalculationService = distanceCalculationService;
+            ShortestPathFinder = shortestPathFinder;
+            RouteFinder = routeFinder;
         }
 
-        public IMapDataReader MapDataReader { get; }
-
-        public async Task<IEnumerable<string>> Plan()
+        /// <summary>
+        /// Plans different journeys and returns result of each in a dictionary
+        /// </summary>
+        /// <returns>Dictionary where key is Operation number and value is result of the operation</returns>
+        public async Task<Dictionary<int, string>> Plan()
         {
-            await CreateMap();
-
             var townA = Map.GetTown("A");
             var townB = Map.GetTown("B");
             var townC = Map.GetTown("C");
 
-
-            var result = new List<string>
+            var result = await Task.Run(() =>
             {
-                CalculationDistanceInPath("ABC"),
-                CalculationDistanceInPath("AD"),
-                CalculationDistanceInPath("ADC"),
-                CalculationDistanceInPath("AEBCD"),
-                CalculationDistanceInPath("AED"),
-                new RouteFinder(Map, new GreaterThanThreeStopsRule()).FindAllRoutesBetween(townC, townC).Count().ToString(),
-                new RouteFinder(Map, new MoreThanTwiceRoutesCoveredRule(), new ExatlyFourStopsRule()).FindAllRoutesBetween(townA, townC).Count().ToString(),
-                new ShortestPathFinder(Map).FindShortestPathBetween(townA, townC).ToString(),
-                new ShortestPathFinder(Map).FindShortestPathBetween(townB, townB).ToString(),
-                new RouteFinder(Map, new TravelDistanceGreaterThanOrEqualTo30Rule()).FindAllRoutesBetween(townC, townC).Count().ToString()
-            };
+                return new Dictionary<int, string>
+                {
+                    {1, CalculationDistanceInPath("ABC") },
+                    {2, CalculationDistanceInPath("AD") },
+                    {3, CalculationDistanceInPath("ADC") },
+                    {4, CalculationDistanceInPath("AEBCD") },
+                    {5, CalculationDistanceInPath("AED") },
+                    {6, RouteFinder.FindAllRoutesBetween(townC, townC, new StopsGreaterThanRule(3)).Count().ToString() },
+                    {7, RouteFinder.FindAllRoutesBetween(townA, townC, new StopsGreaterThanRule(4), new StopsEqualToRule(4)).Count().ToString() },
+                    {8, ShortestPathFinder.FindShortestPathBetween(townA, townC).ToString() },
+                    {9, ShortestPathFinder.FindShortestPathBetween(townB, townB).ToString() },
+                    {10, RouteFinder.FindAllRoutesBetween(townC, townC, new DistanceGreaterThanRule(29)).Count().ToString() }
+                };
+            });
 
             return result;
-        }
-
-        private async Task CreateMap()
-        {
-            var mapInput = await MapDataReader.Read();
-
-            Map = new MapBuilder().Build(mapInput);
         }
 
         string CalculationDistanceInPath(string route)
         {
             try
             {
-                return new DistanceCalculator(Map).Calculate(route).ToString();
+                return DistanceCalculationService.Calculate(route).ToString();
             }
             catch (ValidationException ex)
             {

@@ -8,8 +8,14 @@ namespace Trains.Framework
 {
     public class Route
     {
+        /// <summary>
+        /// The town that this route takes you to
+        /// </summary>
         public Town Destination { get; set; }
 
+        /// <summary>
+        /// Distance between the parent town tht contains this route and the destination
+        /// </summary>
         public int Distance { get; set; }
 
         public override string ToString() => $"{Destination} {Distance}";
