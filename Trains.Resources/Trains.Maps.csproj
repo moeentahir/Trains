@@ -7,8 +7,8 @@
     <ProjectGuid>{E335C5DF-7CAD-4147-B166-4113FD0F20C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Trains.Resources</RootNamespace>
-    <AssemblyName>Trains.Resources</AssemblyName>
+    <RootNamespace>Trains.Maps</RootNamespace>
+    <AssemblyName>Trains.Maps</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -7,6 +7,9 @@ using Trains.Common;
 
 namespace Trains.Framework
 {
+    /// <summary>
+    /// Validates the input and returns the file path
+    /// </summary>
     public class InputValidator
     {
         const int FileArgumentIndex = 0;

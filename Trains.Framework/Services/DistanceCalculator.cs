@@ -22,7 +22,7 @@ namespace Trains.Framework
         /// <summary>
         /// Goes through the speciefied path, if no route exists between two towns, it will throw exception 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Total distance across the whole path</returns>
         public int Calculate(string path)
         {
             if (path.Length < 2)

@@ -25,9 +25,7 @@ namespace Trains.Framework
         /// <summary>
         /// Finds all the paths between origin and destinations. Keeps searching untill stopTravellingRule is met
         /// </summary>
-        /// <param name="origin"></param>
-        /// <param name="destination"></param>
-        /// <returns></returns>
+        /// <returns>All possible routes between origin and destination</returns>
         public List<TravelCard> FindAllRoutesBetween(Town origin, Town destination, ITravelRule stopTravelingRule, ITravelRule destinationFoundRule = null)
         {
             Routes = new List<TravelCard>();

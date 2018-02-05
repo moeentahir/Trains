@@ -6,6 +6,13 @@
       "Exceptions": null,
       "SentToServer": true,
       "InstallationName": "MOEEN"
+    },
+    {
+      "Analyzer": "UnusedMethodsAnalyzer",
+      "OccurrenceCount": 10,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "MOEEN"
     }
   ]
 }

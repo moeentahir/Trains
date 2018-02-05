@@ -11,7 +11,7 @@ namespace Trains.UnitTests.BusinessRulesTests
         [DataRow(1, false)]
         [DataRow(4, true)]
         [DataRow(6, false)]
-        public void Verify_Rule(int stops, bool expected)
+        public void Stops_Equal_To_4(int stops, bool expected)
         {
             var rule = new StopsEqualToRule(4);
             var actual = rule.IsMatch(new TravelCard { StopsTravelled = stops });

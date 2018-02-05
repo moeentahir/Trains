@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents all the travle information from soure till destination
     /// </summary>
-    public struct TravelCard
+    public class TravelCard
     {
         /// <summary>
         /// Rout that you have covered, will be concatenated string of stop names

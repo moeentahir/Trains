@@ -26,7 +26,7 @@ namespace Trains
                 var mapDataReader = new MapRawDataReaderFromFile(filePath);
                 var map = await new MapBuilder(mapDataReader).Build();
 
-                // Step 2: Plan different routs
+                // Step 3: Plan different routs
                 var planningResult = await new JourneyPlanner(
                     map,
                     new DistanceCalculator(map),
@@ -34,7 +34,7 @@ namespace Trains
                     new RouteFinder(map)
                     ).Plan();
 
-                // Step 3: Display results
+                // Step 4: Display results
                 DisplayResult(planningResult);
             }
             catch (ValidationException ex)

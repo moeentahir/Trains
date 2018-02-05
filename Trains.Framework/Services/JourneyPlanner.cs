@@ -14,10 +14,10 @@ namespace Trains.Framework
         private readonly IShortestPathFinder ShortestPathFinder;
         private readonly IRouteFinder RouteFinder;
 
-        public JourneyPlanner(Map map, IDistanceCalculator distanceCalculationService, IShortestPathFinder shortestPathFinder, IRouteFinder routeFinder)
+        public JourneyPlanner(Map map, IDistanceCalculator distanceCalculator, IShortestPathFinder shortestPathFinder, IRouteFinder routeFinder)
         {
             Map = map;
-            DistanceCalculationService = distanceCalculationService;
+            DistanceCalculationService = distanceCalculator;
             ShortestPathFinder = shortestPathFinder;
             RouteFinder = routeFinder;
         }
@@ -62,7 +62,6 @@ namespace Trains.Framework
             {
                 return ex.Message;
             }
-
         }
     }
 }
