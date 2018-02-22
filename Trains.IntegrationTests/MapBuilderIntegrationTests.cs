@@ -48,7 +48,6 @@ namespace Trains.IntegrationTests
             Assert.AreEqual(5, map.Towns.Count);
             Assert.AreEqual(totalRoutes, map.TotalRoutes);
             Assert.AreEqual(20, totalRoutes);
-            Console.Out.WriteLine("test finished");
 
         }
     }

@@ -13,7 +13,7 @@ namespace Trains.UnitTests
         [TestMethod]
         public void Shortest_Route_From_A_To_E()
         {
-            var pathFinder = new ShortestPathFinderRecursive(Map);
+            var pathFinder = new ShortestPathFinder(Map);
             var from = Map.GetTown("A");
             var to = Map.GetTown("E");
 
@@ -21,14 +21,14 @@ namespace Trains.UnitTests
 
             Assert.AreEqual(8, actual);
             Assert.AreEqual("ABCDE", pathFinder.ShortestPathDetails.RouteCovered);
-            Assert.AreEqual(8, pathFinder.ShortestPathDetails.MyDistanceFromSource);
+            Assert.AreEqual(8, pathFinder.ShortestPathDetails.DistanceTravelled);
             Assert.AreEqual(4, pathFinder.ShortestPathDetails.StopsTravelled);
         }
 
         [TestMethod]
         public void Shortest_Route_From_B_To_B()
         {
-            var pathFinder = new ShortestPathFinderRecursive(Map);
+            var pathFinder = new ShortestPathFinder(Map);
             var from = Map.GetTown("B");
             var to = Map.GetTown("B");
 
@@ -36,7 +36,7 @@ namespace Trains.UnitTests
 
             Assert.AreEqual(6, actual);
             Assert.AreEqual("BCDB", pathFinder.ShortestPathDetails.RouteCovered);
-            Assert.AreEqual(6, pathFinder.ShortestPathDetails.MyDistanceFromSource);
+            Assert.AreEqual(6, pathFinder.ShortestPathDetails.DistanceTravelled);
             Assert.AreEqual(3, pathFinder.ShortestPathDetails.StopsTravelled);
         }
 

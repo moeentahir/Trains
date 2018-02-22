@@ -18,8 +18,8 @@ namespace Trains.UnitTests.ServicesTests.JourneyPlannerTests
             var plan = await new JourneyPlanner(
                 map,
                 new DistanceCalculator(map),
-                new ShortestPathFinderRecursive(map),
-                new RouteFinderRecursive(map)
+                new ShortestPathFinder(map),
+                new RouteFinder(map)
                 ).Plan();
 
             Assert.AreEqual(plan[1], "9"); //The distance of the route A-B-C.
@@ -43,8 +43,8 @@ namespace Trains.UnitTests.ServicesTests.JourneyPlannerTests
             var plan = await new JourneyPlanner(
                 map,
                 new DistanceCalculator(map),
-                new ShortestPathFinderRecursive(map),
-                new RouteFinderRecursive(map)
+                new ShortestPathFinder(map),
+                new RouteFinder(map)
                 ).Plan();
 
             Assert.AreEqual(plan[1], "3"); //The distance of the route A-B-C.
@@ -68,8 +68,8 @@ namespace Trains.UnitTests.ServicesTests.JourneyPlannerTests
             var plan = await new JourneyPlanner(
                 map,
                 new DistanceCalculator(map),
-                new ShortestPathFinderRecursive(map),
-                new RouteFinderRecursive(map)
+                new ShortestPathFinder(map),
+                new RouteFinder(map)
                 ).Plan();
 
             Assert.AreEqual(plan[1], "10"); //The distance of the route A-B-C.

@@ -10,12 +10,12 @@ using Tests.Common;
 namespace Trains.UnitTests
 {
     [TestClass]
-    public class RouteFinderOnCompleteMapIterativeTests
+    public class RouteFinderOnCompleteMapTests
     {
         [TestMethod]
         public void Starting_at_C_and_ending_at_C_with_a_maximum_of_3_stops()
         {
-            var pathFinder = new RouteFinderIterative(Map);
+            var pathFinder = new RouteFinder(Map);
             var from = Map.GetTown("C");
             var to = Map.GetTown("C");
 
@@ -29,7 +29,7 @@ namespace Trains.UnitTests
         [TestMethod]
         public void Starting_at_A_and_ending_at_C_with_a_Exact_4_stops()
         {
-            var pathFinder = new RouteFinderIterative(Map);
+            var pathFinder = new RouteFinder(Map);
             var from = Map.GetTown("A");
             var to = Map.GetTown("C");
 
@@ -46,7 +46,7 @@ namespace Trains.UnitTests
         [TestMethod]
         public void C_TO_C_With_Distance_Less_Than_30()
         {
-            var pathFinder = new RouteFinderIterative(Map);
+            var pathFinder = new RouteFinder(Map);
             var from = Map.GetTown("C");
             var to = Map.GetTown("C");
 

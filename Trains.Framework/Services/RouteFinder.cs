@@ -9,7 +9,7 @@ namespace Trains.Framework
     /// <summary>
     /// This class finds all the routes in the map using depth first approach
     /// </summary>
-    public class RouteFinderRecursive : IRouteFinder
+    public class RouteFinder : IRouteFinder
     {
         readonly Map Map;
         List<TravelCard> Routes;
@@ -17,7 +17,7 @@ namespace Trains.Framework
         ITravelRule StopTravelingRule;
         public int RecursionCount { get; set; }
 
-        public RouteFinderRecursive(Map map)
+        public RouteFinder(Map map)
         {
             Map = map;
         }
@@ -68,7 +68,7 @@ namespace Trains.Framework
                 {
                     RouteCovered = $"{ticket.RouteCovered}{route.Destination.Name}",
                     StopsTravelled = ticket.StopsTravelled + 1,
-                    MyDistanceFromSource = ticket.MyDistanceFromSource + route.Distance,
+                    DistanceTravelled = ticket.DistanceTravelled + route.Distance,
                     Map = Map
                 });
             }

@@ -2,7 +2,7 @@
   "Items": [
     {
       "Analyzer": "LongMethodAnalyzer",
-      "OccurrenceCount": 3,
+      "OccurrenceCount": 1,
       "Exceptions": null,
       "SentToServer": true,
       "InstallationName": "MOEEN"

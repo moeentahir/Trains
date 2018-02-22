@@ -59,10 +59,8 @@
     <Compile Include="Services\MapBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MapRawDataReaderFromFile.cs" />
-    <Compile Include="Services\RouteFinderIterative.cs" />
-    <Compile Include="Services\RouteFinderRecursive.cs" />
+    <Compile Include="Services\RouteFinder.cs" />
     <Compile Include="Services\ShortestPathFinder.cs" />
-    <Compile Include="Services\ShortestPathFinderIterative.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Trains.Common\Trains.Common.csproj">

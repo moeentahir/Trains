@@ -74,16 +74,11 @@
     <Compile Include="ServicesTests\MapBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesTests\MapRawDataReaderFromFileTests.cs" />
-    <Compile Include="ServicesTests\RouteFinderIterativeTests\RouteFinderOnCompleteMapIterativeTests.cs" />
-    <Compile Include="ServicesTests\RouteFinderIterativeTests\RouteFinderOnOfficialMapIterativeTests.cs" />
-    <Compile Include="ServicesTests\RouteFinderResursiveTests\RouteFinderOnCompleteMapTests.cs" />
-    <Compile Include="ServicesTests\RouteFinderResursiveTests\RouteFinderOnOfficialMapTests.cs" />
-    <Compile Include="ServicesTests\ShortestPathFinderIterativeTests\ShortestPathFinderIterativeTests.cs" />
-    <Compile Include="ServicesTests\ShortestPathFinderIterativeTests\ShortestPathFinderOnCompleteMapIterativeTests.cs" />
-    <Compile Include="ServicesTests\ShortestPathFinderIterativeTests\ShortestPathFinderOnMapWithLongerPathWithLessCostTests.cs" />
-    <Compile Include="ServicesTests\ShortestPathFinderRecirsiveTests\ShortestPathFinderOnMapWithLongerPathWithLessCostTests.cs" />
-    <Compile Include="ServicesTests\ShortestPathFinderRecirsiveTests\ShortestPathFinderOnCompleteMapTests.cs" />
-    <Compile Include="ServicesTests\ShortestPathFinderRecirsiveTests\ShortestPathFinderOnOfficialMapTests.cs" />
+    <Compile Include="ServicesTests\RouteFinderTests\RouteFinderOnCompleteMapTests.cs" />
+    <Compile Include="ServicesTests\RouteFinderTests\RouteFinderOnOfficialMapTests.cs" />
+    <Compile Include="ServicesTests\ShortestPathFinderTests\ShortestPathFinderOnMapWithLongerPathWithLessCostTests.cs" />
+    <Compile Include="ServicesTests\ShortestPathFinderTests\ShortestPathFinderOnCompleteMapTests.cs" />
+    <Compile Include="ServicesTests\ShortestPathFinderTests\ShortestPathFinderOnOfficialMapTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
