@@ -8,6 +8,6 @@
         {
             this.Distance = distance;
         }
-        public bool IsMatch(TravelCard ticket) => ticket.DistanceTravelled > Distance;
+        public bool IsMatch(TravelCard ticket) => ticket.MyDistanceFromSource > Distance;
     }
 }

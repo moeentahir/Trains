@@ -18,7 +18,7 @@ namespace Trains.UnitTests.BusinessRulesTests
         public void Distance_Greater_Than_Or_Equal_To_30(int stops, bool expected)
         {
             var rule = new DistanceGreaterThanRule(29);
-            var actual = rule.IsMatch(new TravelCard { DistanceTravelled = stops });
+            var actual = rule.IsMatch(new TravelCard { MyDistanceFromSource = stops });
 
             Assert.AreEqual(expected, actual);
         }

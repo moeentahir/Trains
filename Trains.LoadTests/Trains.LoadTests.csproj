@@ -62,8 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RouteFinderLoadTests\RouteFinderOnCompleteMapLoadTests.cs" />
-    <Compile Include="RouteFinderLoadTests\RouteFinderOnOfficialMapLoadTests.cs" />
+    <Compile Include="RouteFinderIterativeLoadTests\RouteFinderOnOfficialMapLoadTests.cs" />
+    <Compile Include="RouteFinderRecursiveLoadTests\RouteFinderOnCompleteMapLoadTests.cs" />
+    <Compile Include="RouteFinderRecursiveLoadTests\RouteFinderOnOfficialMapRecursiveLoadTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

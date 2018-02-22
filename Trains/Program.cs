@@ -30,8 +30,8 @@ namespace Trains
                 var planningResult = await new JourneyPlanner(
                     map,
                     new DistanceCalculator(map),
-                    new ShortestPathFinder(map),
-                    new RouteFinder(map)
+                    new ShortestPathFinderRecursive(map),
+                    new RouteFinderRecursive(map)
                     ).Plan();
 
                 // Step 4: Display results

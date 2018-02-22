@@ -8,50 +8,50 @@ using Trains.Framework;
 namespace Trains.UnitTests
 {
     [TestClass]
-    public class ShortestPathFinderOnOfficialMapTests
+    public class ShortestPathFinderOnCompleteMapIterativeTests
     {
         [TestMethod]
         public void Shortest_Route_From_A_To_C()
         {
-            var pathFinder = new ShortestPathFinder(Map);
+            var pathFinder = new ShortestPathFinderIterative(Map);
             var from = Map.GetTown("A");
             var to = Map.GetTown("C");
 
             var actual = pathFinder.FindShortestPathBetween(from, to);
 
-            Assert.AreEqual(9, actual);
-            Assert.AreEqual("ABC", pathFinder.ShortestPathDetails.RouteCovered);
-            Assert.AreEqual(9, pathFinder.ShortestPathDetails.DistanceTravelled);
-            Assert.AreEqual(2, pathFinder.ShortestPathDetails.StopsTravelled);
+            Assert.AreEqual(5, actual);
+            Assert.AreEqual("AC", pathFinder.ShortestPathDetails.RouteCovered);
+            Assert.AreEqual(5, pathFinder.ShortestPathDetails.MyDistanceFromSource);
+            Assert.AreEqual(1, pathFinder.ShortestPathDetails.StopsTravelled);
         }
 
         [TestMethod]
         public void Shortest_Route_From_B_To_B()
         {
-            var pathFinder = new ShortestPathFinder(Map);
+            var pathFinder = new ShortestPathFinderIterative(Map);
             var from = Map.GetTown("B");
             var to = Map.GetTown("B");
 
             var actual = pathFinder.FindShortestPathBetween(from, to);
 
-            Assert.AreEqual(9, actual);
-            Assert.AreEqual("BCEB", pathFinder.ShortestPathDetails.RouteCovered);
-            Assert.AreEqual(9, pathFinder.ShortestPathDetails.DistanceTravelled);
-            Assert.AreEqual(3, pathFinder.ShortestPathDetails.StopsTravelled);
+            Assert.AreEqual(10, actual);
+            Assert.AreEqual("BAB", pathFinder.ShortestPathDetails.RouteCovered);
+            Assert.AreEqual(10, pathFinder.ShortestPathDetails.MyDistanceFromSource);
+            Assert.AreEqual(2, pathFinder.ShortestPathDetails.StopsTravelled);
         }
 
         [TestMethod]
         public void Shortest_Route_From_A_To_E()
         {
-            var pathFinder = new ShortestPathFinder(Map);
+            var pathFinder = new ShortestPathFinderIterative(Map);
             var from = Map.GetTown("A");
             var to = Map.GetTown("E");
 
             var actual = pathFinder.FindShortestPathBetween(from, to);
 
-            Assert.AreEqual(7, actual);
+            Assert.AreEqual(5, actual);
             Assert.AreEqual("AE", pathFinder.ShortestPathDetails.RouteCovered);
-            Assert.AreEqual(7, pathFinder.ShortestPathDetails.DistanceTravelled);
+            Assert.AreEqual(5, pathFinder.ShortestPathDetails.MyDistanceFromSource);
             Assert.AreEqual(1, pathFinder.ShortestPathDetails.StopsTravelled);
         }
 
@@ -60,7 +60,7 @@ namespace Trains.UnitTests
         [ClassInitialize()]
         public async static Task ClassInit(TestContext context)
         {
-            Map = await new World().CreateMap(MapType.Official);
+            Map = await new World().CreateMap(MapType.Complete);
         }
     }
 }

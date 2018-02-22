@@ -20,8 +20,8 @@ namespace Trains.UnitTests.ServicesTests.JourneyPlannerTests
             var plan = await new JourneyPlanner(
                 map,
                 new DistanceCalculator(map),
-                new ShortestPathFinder(map),
-                new RouteFinder(map)
+                new ShortestPathFinderIterative(map),
+                new RouteFinderRecursive(map)
                 ).Plan();
 
             Assert.AreEqual(plan[1], "9"); //The distance of the route A-B-C.

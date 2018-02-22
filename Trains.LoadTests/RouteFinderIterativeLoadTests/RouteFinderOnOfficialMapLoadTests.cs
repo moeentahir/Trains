@@ -10,40 +10,42 @@ using System.Diagnostics;
 namespace Trains.UnitTests
 {
     [TestClass]
-    public class RouteFinderOnCompleteMapLoadTests
+    public class RouteFinderOnOfficialMapIterativeLoadTests
     {
 
         [TestMethod]
         public void C_TO_C_With_Large_Stops()
         {
-            var pathFinder = new RouteFinder(Map);
+            var pathFinder = new RouteFinderIterative(Map);
             var from = Map.GetTown("C");
             var to = Map.GetTown("C");
 
-            var logs = pathFinder.FindAllRoutesBetween(from, to, new StopsGreaterThanRule(12));
+            var logs = pathFinder.FindAllRoutesBetween(from, to, new StopsGreaterThanRule(40));
             var paths = logs.Select(p => p.RouteCovered).ToList();
 
             Assert.IsTrue(paths.All(p => p.StartsWith("C")));
             Assert.IsTrue(paths.All(p => p.EndsWith("C")));
 
-            Debug.Write(pathFinder.RecursionCount);
+            Debug.WriteLine($"Total paths: {paths.Count().ToString("N0")}");
+            Debug.WriteLine($"Total recursions: {pathFinder.RecursionCount.ToString("N0")}");
 
         }
 
         [TestMethod]
         public void C_TO_C_With_Max_Distance()
         {
-            var pathFinder = new RouteFinder(Map);
+            var pathFinder = new RouteFinderIterative(Map);
             var from = Map.GetTown("C");
             var to = Map.GetTown("C");
 
-            var logs = pathFinder.FindAllRoutesBetween(from, to, new DistanceGreaterThanRule(60));
+            var logs = pathFinder.FindAllRoutesBetween(from, to, new DistanceGreaterThanRule(200));
             var paths = logs.Select(p => p.RouteCovered).ToList();
 
             Assert.IsTrue(paths.All(p => p.StartsWith("C")));
             Assert.IsTrue(paths.All(p => p.EndsWith("C")));
 
-            Debug.Write(pathFinder.RecursionCount);
+            Debug.WriteLine($"Total paths: {paths.Count().ToString("N0")}");
+            Debug.WriteLine($"Total recursions: {pathFinder.RecursionCount.ToString("N0")}");
 
         }
 
@@ -52,7 +54,7 @@ namespace Trains.UnitTests
         [ClassInitialize()]
         public async static Task ClassInit(TestContext context)
         {
-            Map = await new World().CreateMap(MapType.Complete);
+            Map = await new World().CreateMap(MapType.Official);
         }
     }
 }

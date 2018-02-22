@@ -18,11 +18,15 @@
         /// <summary>
         /// Distance covered across the whole route
         /// </summary>
-        public int DistanceTravelled { get; set; }
+        public int MyDistanceFromSource { get; set; }
+
+        public int OthersDistanceFromSource { get; set; }
+
+        public Town LastTownVisited { get; set; }
 
         public Map Map { get; set; }
 
-        public override string ToString() => $"Path: {RouteCovered} | Distance: {DistanceTravelled} | Stops: {StopsTravelled}";
+        public override string ToString() => $"Path: {RouteCovered} | My Distance: {MyDistanceFromSource} | Others Distance: {OthersDistanceFromSource} | Stops: {StopsTravelled}";
 
     }
 }

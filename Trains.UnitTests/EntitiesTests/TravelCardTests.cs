@@ -12,13 +12,13 @@ namespace Trains.UnitTests.EntitiesTests
         {
             var log = new TravelCard
             {
-                DistanceTravelled = 10,
+                MyDistanceFromSource = 10,
                 RouteCovered = "ABC",
                 StopsTravelled = 2
 
             };
             var actual = log.ToString();
-            var expected = "Path: ABC | Distance: 10 | Stops: 2";
+            var expected = "Path: ABC | My Distance: 10 | Others Distance: 0 | Stops: 2";
 
             Assert.AreEqual(expected, actual);
         }
